@@ -103,12 +103,13 @@ app.put("/districts/:districtId/", async (request, response) => {
 app.get("/states/:stateId/stats", async (request, response) => {
   const { stateId } = request.params;
   const statisticsQry = `select sum(cases) as totalCases,
-  sum(cured) as totalCured,sum(active) as toatalActive,
+  sum(cured) as totalCured,sum(active) as totalActive,
   sum(deaths) as totalDeaths
   from state join district on
     state.state_id=district.state_id where state.state_id=${stateId};`;
   const statistics = await db.all(statisticsQry);
-  console.log(statistics);
+  response.send(statistics[0]);
+  console.log(statistics[0]);
 });
 
 // stateName based on Dist_id
