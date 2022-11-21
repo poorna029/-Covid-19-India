@@ -1,0 +1,47 @@
+### 1 list of all states info
+
+get http://localhost:3000/states/
+
+### 2 stateInfo based on state_id
+get http://localhost:3000/states/8/
+
+### 3 Create a district in the district table
+post http://localhost:3000/districts/
+Content-Type: application/json
+
+{
+  "districtName": "Bagalkot",
+  "stateId": 3,
+  "cases": 2323,
+  "cured": 2000,
+  "active": 315,
+  "deaths": 8
+}
+
+### 4 distric info based on district_id
+get http://localhost:3000/districts/10/
+
+### 5 Del Dist based on dist_id
+delete http://localhost:3000/districts/10/
+
+### 6 Dist Detais Updation
+put http://localhost:3000/districts/10/
+Content-Type: application/json
+
+{
+  "districtName": "Nadia",
+  "stateId": 3,
+  "cases": 9628,
+  "cured": 6524,
+  "active": 3000,
+  "deaths": 104
+}
+
+### 7 statistics of total cases, cured, active, deaths
+### of a specific state based on state ID
+get http://localhost:3000/states/10/stats/ 
+
+
+### 8 StateName based on district_id
+
+get http://localhost:3000/districts/5/details/
